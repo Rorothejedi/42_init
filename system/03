@@ -1,0 +1,10 @@
+# Pour rendre la modification du nom du systeme permanente, il faut modifier le
+# fichier "hostname" situe dans le repertoire /etc.
+
+# Donc pour le modifier, il suffit de faire :
+
+	vi /etc/hostname
+
+# Ou la commande faisant le meme effet :
+
+	hostnamectl set-hostname new.name

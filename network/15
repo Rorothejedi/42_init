@@ -1,0 +1,5 @@
+# Faire cette manipulation avec les droits actuel est impossible, pour cela il
+# faut les droits administrateur.
+
+# Pour ce faire, il suffit d'inscrire dans le fichier /etc/hosts :
+46.19.122.85		intra.42.fr

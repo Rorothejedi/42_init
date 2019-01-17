@@ -1,0 +1,6 @@
+# Le fichier qui contient la version de Debian actuelle est "debian_version"
+# situe dans le repertoire "/etc".
+
+# Donc pour y acceder, il suffit de faire :
+
+	cat /etc/debian_version

@@ -1,0 +1,8 @@
+# Deux solutions existent pour trouver l'hebergeur du site web slash16.org :
+
+# 1. Une rapide recherche internet nous indique que l'hebergeur est
+# "Amazon.com, Inc."(lien : http://website.informer.com/slash16.org).
+
+# 2. Utiliser la commande "whois slash16.org" nous donne plusieurs informations
+# dont le nom des serveurs qui heberge le site web. Les noms contiennent AWS 
+# pour Amazon Web Service.

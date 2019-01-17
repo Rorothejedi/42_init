@@ -1,0 +1,5 @@
+# (a) Adresse de broadcast
+  ifconfig | grep 'en0' -A 4 | grep 'broadcast' | cut -d ' ' -f6
+
+# (b) Adresses IP du meme sous-reseau
+  arp -a | grep 'en0' | cut -d '(' -f2 | cut -d ')' -f1

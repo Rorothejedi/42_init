@@ -1,0 +1,10 @@
+# En session GRAPHIQUE
+#
+# Il suffit d'utiliser l'interface de debian pour changer d'utilisateur et se
+# connecter avec le nouveau.
+
+
+# En session SSH
+#
+# Pour ce connecter avec ce nouvel utilisateur, il faut utiliser la commande :
+#    ssh username@server (par exemple : michel@0.0.0.0 en local).

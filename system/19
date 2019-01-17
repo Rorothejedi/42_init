@@ -1,0 +1,23 @@
+# La commande service --status-all affiche la liste des services qui se lancent
+# automatiquement lorsque la machine boot.
+
+# Ces services sont appelles des "Deamon".
+
+[ + ]  apache-htcacheclean
+[ + ]  apache2
+[ + ]  avahi-daemon
+[ + ]  cron
+[ + ]  cups
+[ + ]  cups-browsed
+[ + ]  dbus
+[ + ]  gdm3
+[ + ]  kmod
+[ + ]  minissdpd
+[ + ]  network-manager
+[ + ]  networking
+[ + ]  procps
+[ + ]  rsyslog
+[ + ]  speech-dispatcher
+[ + ]  ssh
+[ + ]  udev
+[ + ]  unattended-upgrades

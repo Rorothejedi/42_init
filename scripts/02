@@ -1,0 +1,24 @@
+#!/bin/sh
+
+if [ -z $1 ]
+then
+    echo "Specify the user to delete in parameter"
+else
+    user_to_delete=$1
+    user_exist=$(cat /etc/passwd | grep "bash" | cut -d ':' -f1 | grep "$user_to_delete")
+    user_connect=$(users | tr ' ' '\n' | grep "$user_to_delete")
+
+    if [ $user_connect = $user_to_delete ]
+    then
+          passwd -l $user_to_delete
+          crontab -r -u $user_to_delete
+          pkill -u $user_to_delete
+          userdel -fr $user_to_delete
+          echo "User $user_to_delete is successful delete"
+    elif [ $user_exist = $user_to_delete ]
+    then
+          echo "This user is not logged in"
+    else
+          echo "This user doesn't exist"
+    fi
+fi

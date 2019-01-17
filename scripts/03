@@ -1,0 +1,104 @@
+#!/bin/sh
+
+# Generateur de couleur en shell !
+#
+# Il est possible a l'aide des differents flags de choisir la couleur des
+# lettres, du fond du texte ou des effets a appliquer.
+
+
+start_color="\033["
+end_color="\033[0m"
+
+usage='Usage : color [-effect] [-textcolor] [-backgroundcolor]\n
+\n
+Flags for effects :\n
+  -d (default)\n
+  -b (bolt)\n
+  -i (italic)\n
+  -u (underline)\n
+  -h (hightline)\n
+\n
+Flags for colors :\n
+  -black\n
+  -red\n
+  -green\n
+  -yellow\n
+  -blue\n
+  -pink\n
+  -cyan\n
+  -grey'
+
+case $# in
+   0) echo "$usage"
+      exit;;
+   1) input=$(cat -);;
+   2) input=$(cat -);;
+   3) input=$(cat -);;
+   *) echo "Il y a trop de parametre en argument de la commande\n"
+      echo "$usage"
+      exit
+esac
+
+if [ "$1" != "-black" ] && [ "$1" != "-red" ] && [ "$1" != "-green" ] &&
+   [ "$1" != "-yellow" ] && [ "$1" != "-blue" ] && [ "$1" != "-pink" ] &&
+   [ "$1" != "-cyan" ] && [ "$1" != "-grey" ]
+then
+    case $1 in
+      -d)   start_color+="0;";; # Default
+      -b)   start_color+="1;";; # Bolt
+      -i)   start_color+="3;";; # Italic
+      -u)   start_color+="4;";; # Underline
+      -h)   start_color+="7;";; # Hightlight
+      *)    echo "Erreur. L'effet ajouté n'existe pas."
+            exit
+    esac
+
+    case $2 in
+      -black)  start_color+="30";;
+      -red)    start_color+="31";;
+      -green)  start_color+="32";;
+      -yellow) start_color+="33";;
+      -blue)   start_color+="34";;
+      -pink)   start_color+="35";;
+      -cyan)   start_color+="36";;
+      -grey)   start_color+="37";;
+    esac
+
+    case $3 in
+      -black)  start_color+=";40";;
+      -red)    start_color+=";41";;
+      -green)  start_color+=";42";;
+      -yellow) start_color+=";43";;
+      -blue)   start_color+=";44";;
+      -pink)   start_color+=";45";;
+      -cyan)   start_color+=";46";;
+      -grey)   start_color+=";47";;
+    esac
+elif [ -z "$3" ]
+then
+    start_color+="0;"
+    case $1 in
+        -black)  start_color+="30";;
+        -red)    start_color+="31";;
+        -green)  start_color+="32";;
+        -yellow) start_color+="33";;
+        -blue)   start_color+="34";;
+        -pink)   start_color+="35";;
+        -cyan)   start_color+="36";;
+        -grey)   start_color+="37";;
+    esac
+
+    case $2 in
+        -black)  start_color+=";40";;
+        -red)    start_color+=";41";;
+        -green)  start_color+=";42";;
+        -yellow) start_color+=";43";;
+        -blue)   start_color+=";44";;
+        -pink)   start_color+=";45";;
+        -cyan)   start_color+=";46";;
+        -grey)   start_color+=";47";;
+    esac
+fi
+
+start_color+="m$input$end_color"
+echo -e $start_color
